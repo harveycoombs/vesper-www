@@ -1,3 +1,5 @@
+"use client";
+import { motion } from "motion/react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChain } from "@fortawesome/free-solid-svg-icons";
 import { faGithub, faXTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
@@ -8,7 +10,12 @@ import SocialMediaIcon from "@/app/components/common/SocialMediaIcon";
 export default function Home() {
     return (
         <main className="w-full h-[calc(100vh-64px)] px-5 pb-5 flex justify-between items-end relative z-10">
-            <h1 className="text-white text-8xl leading-30 font-semibold">Who needs<br/>Slash Commands<br/>when you have<br/>Agentic <span className="grad-text">AI</span>?</h1>
+            <h1 className="text-white text-8xl leading-30 font-semibold">
+                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6 }} className="block">Who needs</motion.span></div>
+                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="block">Slash Commands</motion.span></div>
+                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="block">when you have</motion.span></div>
+                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="block">Agentic <span className="grad-text">AI</span>?</motion.span></div>
+            </h1>
 
             <nav className="flex items-center gap-5">
                 <Button url="/"><FontAwesomeIcon icon={faChain} /> Invite Bot</Button>
