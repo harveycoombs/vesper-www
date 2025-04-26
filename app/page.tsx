@@ -18,7 +18,7 @@ export default function Home() {
             </h1>
 
             <nav className="flex items-center gap-5">
-                <Button url="/"><FontAwesomeIcon icon={faChain} /> Invite Bot</Button>
+                <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot"><FontAwesomeIcon icon={faChain} /> Invite Bot</Button>
                 <SocialMediaIcon url="https://github.com/harveycoombs" icon={faGithub} />
                 <SocialMediaIcon url="https://x.com/harveycoombs" icon={faXTwitter} />
                 <SocialMediaIcon url="https://discord.gg/vesper" icon={faDiscord} />
