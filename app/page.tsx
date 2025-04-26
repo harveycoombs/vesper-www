@@ -9,8 +9,8 @@ import SocialMediaIcon from "@/app/components/common/SocialMediaIcon";
 
 export default function Home() {
     return (
-        <main className="w-full h-[calc(100vh-64px)] px-5 pb-5 flex justify-between items-end relative z-10">
-            <h1 className="text-white text-8xl leading-30 font-semibold">
+        <main className="w-full h-[calc(100vh-64px)] px-5 pb-5 flex justify-between items-end relative z-10 max-lg:flex-col max-lg:items-start max-lg:justify-end max-lg:gap-12">
+            <h1 className="text-white text-8xl leading-30 font-semibold max-2xl:text-7xl max-2xl:leading-24 max-sm:text-6xl max-sm:leading-20">
                 <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6 }} className="block">Who needs</motion.span></div>
                 <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="block">Slash Commands</motion.span></div>
                 <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="block">when you have</motion.span></div>
