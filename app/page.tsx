@@ -1,28 +1,44 @@
 "use client";
 import { motion } from "motion/react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChain } from "@fortawesome/free-solid-svg-icons";
-import { faGithub, faXTwitter, faDiscord } from "@fortawesome/free-brands-svg-icons";
-
-import Button from "@/app/components/common/Button";
-import SocialMediaIcon from "@/app/components/common/SocialMediaIcon";
 
 export default function Home() {
     return (
-        <main className="w-full h-[calc(100vh-64px)] px-5 pb-5 flex justify-between items-end relative z-10 max-lg:flex-col max-lg:items-start max-lg:justify-end max-lg:gap-12">
-            <h1 className="text-white text-8xl leading-30 font-semibold max-2xl:text-7xl max-2xl:leading-24 max-sm:text-6xl max-sm:leading-20">
-                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6 }} className="block">Who needs</motion.span></div>
-                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="block">Slash Commands</motion.span></div>
-                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="block">when you have</motion.span></div>
-                <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.3 }} className="block">Agentic <span className="grad-text">AI</span>?</motion.span></div>
-            </h1>
+        <main className="w-375 mx-auto">
+            <section className="flex items-center gap-30">
+                <div className="w-10/16 mb-5">
+                    <h1 className="text-white text-[4rem] leading-22 font-semibold max-2xl:text-7xl max-2xl:leading-24 max-sm:text-6xl max-sm:leading-20">
+                        <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6 }} className="block">Who needs slash</motion.span></div>
+                        <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.1 }} className="block">commands when you</motion.span></div>
+                        <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="block">have Agentic <span className="grad-text">AI</span>?</motion.span></div>
+                    </h1>
 
-            <nav className="flex items-center gap-5">
-                <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot"><FontAwesomeIcon icon={faChain} /> Invite Bot</Button>
-                <SocialMediaIcon url="https://github.com/harveycoombs" icon={faGithub} />
-                <SocialMediaIcon url="https://x.com/harveycoombs" icon={faXTwitter} />
-                <SocialMediaIcon url="https://discord.gg/vesper" icon={faDiscord} />
-            </nav>
+                    <div className="mt-6">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam eum voluptatum, necessitatibus fuga similique libero, omnis, vel molestias molestiae ut fugit repudiandae.</div>
+                </div>
+
+                <div className="w-6/16">
+                    <HeroImage url="/images/hero.png" delay={0} classes="mb-8" />
+                    <HeroImage url="/images/hero.png" delay={0.1} classes="mb-8" />
+                    <HeroImage url="/images/hero.png" delay={0.2} />
+                </div>
+            </section>
         </main>
+    );
+}
+
+function HeroImage({ url, delay, classes }: any) {
+    return (
+        <motion.img 
+            src={url} 
+            alt="Hero" 
+            className={`block w-11/12 h-auto rounded-xl ml-auto ${classes?.length ? classes : ""}`}
+            initial={{ x: "100%" }}
+            animate={{ x: 0 }}
+            transition={{ 
+                type: "spring", 
+                stiffness: 100, 
+                damping: 12,
+                delay: delay
+            }}
+        />
     );
 }

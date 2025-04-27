@@ -6,7 +6,6 @@ import "./globals.css";
 
 import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
-import Logo from "@/app/components/common/Logo";
 
 const inter = Inter({
     weight: ["400", "500", "600", "700", "900"],
@@ -50,9 +49,8 @@ export default function RootLayout({
                 <link rel="canonical" href="https://vesper.gg" />
             </head>
 
-            <body className={`${inter.className} h-screen overflow-hidden text-gray-600 bg-gradient-to-b bg-gray-950 from-gray-900 to-gray-950"`}>
+            <body className={`${inter.className} h-screen text-gray-500 bg-gradient-to-b bg-gray-950 from-gray-900 to-gray-950`}>
                 <Header />
-                <div className="fixed z-0 -left-20 top-[-8vh] h-[116vh] opacity-25"><Logo className="w-full h-full" /></div>
                 {children}
                 <Footer />
             </body>

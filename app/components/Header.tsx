@@ -1,10 +1,36 @@
 import Link from "next/link";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChain } from "@fortawesome/free-solid-svg-icons";
+
+import Logo from "@/app/components/common/Logo";
+import Button from "@/app/components/common/Button";
+import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Header() {
     return (
-        <header className="p-5 flex justify-between items-center">
-            <strong className="text-white select-none font-bold">Vesper.gg</strong>
-            <div className="font-medium select-none text-sm leading-none">2021 &ndash; {new Date().getFullYear()} &middot; <span className="max-sm:hidden">Created by </span><Link href="https://harveycoombs.com" target="_blank" rel="noopener" className="hover:underline">Harvey Coombs</Link></div>
+        <header className="w-375 mx-auto py-5 flex justify-between items-center">
+            <Link href="/" className="duration-150 hover:opacity-80 active:opacity-70"><Logo width={35} height={28} /></Link>
+
+            <nav>
+                <HeaderLink url="/about">About</HeaderLink>
+                <HeaderLink url="/docs">Documentation</HeaderLink>
+                <HeaderLink url="/news">News</HeaderLink>
+                <HeaderLink url="/support">Support</HeaderLink>
+            </nav>
+
+            <div>
+                <Button url=""><FontAwesomeIcon icon={faChain} /> Invite</Button>
+                <HeaderIcon url="https://github.com/harveycoombs" icon={faGithub} />
+                <HeaderIcon url="https://discord.gg/vesper" icon={faDiscord} />
+            </div>
         </header>
     );
+}
+
+function HeaderLink({ url, children }: any) {
+    return <Link href={url} className="inline-block align-middle text-sm font-medium leading-none mx-5 select-none cursor-pointer duration-150 hover:text-gray-300 active:text-white">{children}</Link>;
+}
+
+function HeaderIcon({ url, icon }: any) {
+    return <Link href={url} className="inline-block align-middle text-xl ml-4.5 select-none cursor-pointer duration-150 hover:text-gray-300 active:text-white"><FontAwesomeIcon icon={icon} /></Link>;
 }
