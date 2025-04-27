@@ -16,8 +16,8 @@ export default function Home() {
                 </div>
 
                 <div className="w-6/16">
-                    <HeroImage url="/images/hero.png" delay={0} classes="mb-8" />
-                    <HeroImage url="/images/hero.png" delay={0.1} classes="mb-8" />
+                    <HeroImage url="/images/hero.png" classes="mb-8" />
+                    <HeroImage url="/images/hero.png" delay={0.1} x="8.3333%" classes="mb-8" />
                     <HeroImage url="/images/hero.png" delay={0.2} />
                 </div>
             </section>
@@ -25,14 +25,14 @@ export default function Home() {
     );
 }
 
-function HeroImage({ url, delay, classes }: any) {
+function HeroImage({ url, delay = 0, x = "0", classes = "" }: any) {
     return (
         <motion.img 
             src={url} 
             alt="Hero" 
-            className={`block w-11/12 h-auto rounded-xl ml-auto ${classes?.length ? classes : ""}`}
+            className={`block w-11/12 h-auto rounded-xl ${classes.length ? classes : ""}`}
             initial={{ x: "100%" }}
-            animate={{ x: 0 }}
+            animate={{ x }}
             transition={{ 
                 type: "spring", 
                 stiffness: 100, 
