@@ -34,7 +34,7 @@ export default function Home() {
                 <Panel title="Join Our Discord" classes="w-1/2 relative overflow-hidden">
                     <div className="w-1/2 inline-block">
                         <p className="block my-3.5 text-sm font-medium leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat repudiandae quis assumenda.</p>
-                        <Button url="#" classes="block w-fit" background="bg-[#5865F5]">Join Server</Button>
+                        <Button url="https://discord.gg/aF4EctqgPS" classes="block w-fit" background="bg-[#5865F5]">Join Server</Button>
                     </div>
 
                     <div className="w-7/16 h-full absolute top-0 right-0">

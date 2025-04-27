@@ -21,7 +21,7 @@ export default function Header() {
             <div>
                 <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" classes="inline-block align-middle"><FontAwesomeIcon icon={faChain} /> Invite</Button>
                 <HeaderIcon url="https://github.com/harveycoombs" icon={faGithub} />
-                <HeaderIcon url="https://discord.gg/vesper" icon={faDiscord} />
+                <HeaderIcon url="https://discord.gg/aF4EctqgPS" icon={faDiscord} />
             </div>
         </header>
     );
