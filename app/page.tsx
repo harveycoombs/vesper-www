@@ -19,9 +19,9 @@ export default function Home() {
                 </div>
 
                 <div className="w-6/16">
-                    <HeroImage url="/images/hero.png" classes="mb-8" />
-                    <HeroImage url="/images/hero.png" delay={0.1} x="8.3333%" classes="mb-8" />
-                    <HeroImage url="/images/hero.png" delay={0.2} />
+                    <HeroImage url="/images/hero.png" x="8.3333%" classes="mb-8" />
+                    <HeroImage url="/images/hero.png" delay={0.1} classes="mb-8" />
+                    <HeroImage url="/images/hero.png" delay={0.2} x="8.3333%" />
                 </div>
             </section>
 
@@ -31,10 +31,17 @@ export default function Home() {
                     <Button url="/about" classes="block w-fit">Learn More</Button>
                 </Panel>
 
-                <Panel title="Join Our Discord" classes="w-1/2 relative">
+                <Panel title="Join Our Discord" classes="w-1/2 relative overflow-hidden">
                     <div className="w-1/2 inline-block">
                         <p className="block my-3.5 text-sm font-medium leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat repudiandae quis assumenda.</p>
-                        <Button url="#" classes="block w-fit" background="#5865F5">Join Server</Button>
+                        <Button url="#" classes="block w-fit" background="bg-[#5865F5]">Join Server</Button>
+                    </div>
+
+                    <div className="w-7/16 h-full absolute top-0 right-0">
+                        <div className="relative w-full h-full">
+                            <div className="absolute inset-0 bg-gradient-to-r from-[#131B29] to-transparent z-10"></div>
+                            <img src="/images/server.png" alt="Discord" className="object-cover w-full h-full z-0" />
+                        </div>
                     </div>
                 </Panel>
             </section>

@@ -5,3 +5,8 @@
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
+
+::selection {
+    background-color: #FA2A7A;
+    color: #FFFFFF;
+}
