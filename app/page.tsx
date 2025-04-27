@@ -3,6 +3,7 @@ import { motion } from "motion/react";
 
 import Panel from "@/app/components/common/Panel";
 import Button from "@/app/components/common/Button";
+import Logo from "@/app/components/common/Logo";
 
 export default function Home() {
     return (
@@ -26,9 +27,11 @@ export default function Home() {
             </section>
 
             <section className="w-full h-76 flex gap-10">
-                <Panel title="Streamline & Simplify" classes="w-1/2 relative">
-                    <p className="block my-3.5 text-sm font-medium leading-relaxed">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit error molestias hic, ipsum sapiente aperiam blanditiis asperiores quae aliquid commodi ea praesentium exercitationem cupiditate repellendus ut quis magni voluptatibus omnis! Corporis, aut.</p>
-                    <Button url="/about" classes="block w-fit">Learn More</Button>
+                <Panel title="Streamline & Simplify" classes="w-1/2 relative overflow-hidden">
+                    <p className="block my-3.5 text-sm font-medium leading-relaxed relative z-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit error molestias hic, ipsum sapiente aperiam blanditiis asperiores quae aliquid commodi ea praesentium exercitationem cupiditate repellendus ut quis magni voluptatibus omnis! Corporis, aut.</p>
+                    <Button url="/about" classes="block w-fit relative z-10">Learn More</Button>
+
+                    <Logo className="w-auto h-full opacity-20 absolute z-0 scale-150 top-0 -right-10" />
                 </Panel>
 
                 <Panel title="Join Our Discord" classes="w-1/2 relative overflow-hidden">
