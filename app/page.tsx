@@ -7,7 +7,7 @@ import Logo from "@/app/components/common/Logo";
 
 export default function Home() {
     return (
-        <main className="w-375 h-[calc(100vh-142px)] mx-auto grid place-items-center max-2xl:w-300 max-xl:w-full max-xl:px-5">
+        <main className="w-375 min-h-[calc(100vh-142px)] mx-auto grid place-items-center max-2xl:w-300 max-xl:w-full max-xl:px-5 max-md:min-h-[calc(100vh-170px)]">
             <section className="w-full flex items-center gap-30 max-xl:gap-10">
                 <div className="w-10/16 mb-5 max-xl:w-9/16 max-lg:w-1/2 max-md:w-full">
                     <h1 className="text-white text-[4rem] leading-22 font-semibold max-2xl:text-6xl max-2xl:leading-20 max-xl:text-[3.2rem] max-xl:leading-18 max-lg:text-[2.6rem] max-lg:leading-16 max-md:text-5xl max-md:leading-18 max-md:text-center">
