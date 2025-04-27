@@ -1,9 +1,17 @@
+"use client";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export default function Footer() {
-    const serverCount = 0;
+    const [serverCount, setServerCount] = useState<number>(0);
+
+    useEffect(() => {
+        (async () => {
+            // to-do
+        })();
+    }, []);
 
     return (
         <footer className="w-375 mx-auto py-5 flex justify-between items-center text-sm font-medium max-2xl:w-300 max-xl:w-full max-xl:px-5 max-md:flex-col max-md:gap-2 max-md:text-center">
