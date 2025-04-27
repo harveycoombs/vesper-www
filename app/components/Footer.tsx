@@ -3,11 +3,13 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export default function Footer() {
+    const serverCount = 0;
+
     return (
         <footer className="w-375 mx-auto py-5 flex justify-between items-center text-sm font-medium max-2xl:w-300 max-xl:w-full max-xl:px-5 max-md:flex-col max-md:gap-2 max-md:text-center">
             <div>{new Date().getFullYear()} &middot; Vesper &middot; <Link href="https://harveycoombs.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Harvey Coombs</Link></div>
 
-            <div className="max-md:hidden">Active in 0 servers</div>
+            <div className="max-md:hidden">Active in {serverCount} servers</div>
 
             <div className="select-none">
                 <Link href="/documents/terms-of-service.pdf" target="_blank" rel="noopener noreferrer" className="inline-block align-middle hover:underline">Terms of Service</Link>
