@@ -8,10 +8,10 @@ import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Header() {
     return (
-        <header className="w-375 mx-auto py-5 flex justify-between items-center select-none">
+        <header className="w-375 mx-auto py-5 flex justify-between items-center select-none max-2xl:w-300 max-xl:w-full max-xl:px-5">
             <Link href="/" className="duration-150 hover:opacity-80 active:opacity-70"><Logo width={35} height={28} /></Link>
 
-            <nav>
+            <nav className="max-md:hidden">
                 <HeaderLink url="/about">About</HeaderLink>
                 <HeaderLink url="/docs">Documentation</HeaderLink>
                 <HeaderLink url="/news">News</HeaderLink>

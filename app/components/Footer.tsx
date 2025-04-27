@@ -4,7 +4,7 @@ import { faEnvelope } from "@fortawesome/free-regular-svg-icons";
 
 export default function Footer() {
     return (
-        <footer className="w-375 mx-auto py-5 flex justify-between items-center text-sm font-medium">
+        <footer className="w-375 mx-auto py-5 flex justify-between items-center text-sm font-medium max-2xl:w-300 max-xl:w-full max-xl:px-5">
             <div>{new Date().getFullYear()} &middot; Vesper &middot; <Link href="https://harveycoombs.com" target="_blank" rel="noopener noreferrer" className="hover:underline">Harvey Coombs</Link></div>
 
             <div>Active in 0 servers</div>
