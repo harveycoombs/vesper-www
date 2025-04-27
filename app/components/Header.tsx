@@ -8,7 +8,7 @@ import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Header() {
     return (
-        <header className="w-375 mx-auto py-5 flex justify-between items-center">
+        <header className="w-375 mx-auto py-5 flex justify-between items-center select-none">
             <Link href="/" className="duration-150 hover:opacity-80 active:opacity-70"><Logo width={35} height={28} /></Link>
 
             <nav>
@@ -19,7 +19,7 @@ export default function Header() {
             </nav>
 
             <div>
-                <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" classes="inline-block align-middle"><FontAwesomeIcon icon={faChain} /> Invite</Button>
+                <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle"><FontAwesomeIcon icon={faChain} /> Invite</Button>
                 <HeaderIcon url="https://github.com/harveycoombs" icon={faGithub} />
                 <HeaderIcon url="https://discord.gg/aF4EctqgPS" icon={faDiscord} />
             </div>
@@ -28,9 +28,9 @@ export default function Header() {
 }
 
 function HeaderLink({ url, children }: any) {
-    return <Link href={url} className="inline-block align-middle text-sm font-medium leading-none mx-5 select-none cursor-pointer duration-150 hover:text-gray-300 active:text-white">{children}</Link>;
+    return <Link href={url} className="inline-block align-middle text-sm font-medium leading-none mx-5 cursor-pointer duration-150 hover:text-gray-300 active:text-white" target="_blank" rel="noopener noreferrer">{children}</Link>;
 }
 
 function HeaderIcon({ url, icon }: any) {
-    return <Link href={url} className="inline-block align-middle text-xl ml-4.5 select-none cursor-pointer duration-150 hover:text-gray-300 active:text-white"><FontAwesomeIcon icon={icon} /></Link>;
+    return <Link href={url} className="inline-block align-middle text-xl ml-4.5 cursor-pointer duration-150 hover:text-gray-300 active:text-white" target="_blank" rel="noopener noreferrer"><FontAwesomeIcon icon={icon} /></Link>;
 }

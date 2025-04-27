@@ -6,7 +6,7 @@ import Button from "@/app/components/common/Button";
 
 export default function Home() {
     return (
-        <main className="w-375 h-[calc(100vh-78px)] mx-auto grid place-items-center">
+        <main className="w-375 h-[calc(100vh-142px)] mx-auto grid place-items-center">
             <section className="w-full flex items-center gap-30">
                 <div className="w-10/16 mb-5">
                     <h1 className="text-white text-[4rem] leading-22 font-semibold max-2xl:text-7xl max-2xl:leading-24 max-sm:text-6xl max-sm:leading-20">
@@ -18,7 +18,7 @@ export default function Home() {
                     <div className="mt-6 leading-loose">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam eum voluptatum,<br/>necessitatibus fuga similique libero, omnis, vel molestias molestiae ut fugit repudiandae.</div>
                 </div>
 
-                <div className="w-6/16">
+                <div className="w-6/16 select-none">
                     <HeroImage url="/images/hero.png" x="8.3333%" classes="mb-8" />
                     <HeroImage url="/images/hero.png" delay={0.1} classes="mb-8" />
                     <HeroImage url="/images/hero.png" delay={0.2} x="8.3333%" />
@@ -34,7 +34,7 @@ export default function Home() {
                 <Panel title="Join Our Discord" classes="w-1/2 relative overflow-hidden">
                     <div className="w-1/2 inline-block">
                         <p className="block my-3.5 text-sm font-medium leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat repudiandae quis assumenda.</p>
-                        <Button url="https://discord.gg/aF4EctqgPS" classes="block w-fit" background="bg-[#5865F5]">Join Server</Button>
+                        <Button url="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" classes="block w-fit" background="bg-[#5865F5]">Join Server</Button>
                     </div>
 
                     <div className="w-7/16 h-full absolute top-0 right-0">
@@ -63,6 +63,7 @@ function HeroImage({ url, delay = 0, x = "0", classes = "" }: any) {
                 damping: 12,
                 delay: delay
             }}
+            draggable={false}
         />
     );
 }
