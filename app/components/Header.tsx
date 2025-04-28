@@ -29,7 +29,7 @@ export default function Header() {
 }
 
 function HeaderLink({ url, children }: any) {
-    return <Link href={url} className="inline-block align-middle text-sm font-medium leading-none mx-5 cursor-pointer duration-150 hover:text-gray-300 active:text-white" target="_blank" rel="noopener noreferrer">{children}</Link>;
+    return <Link href={url} className="inline-block align-middle text-sm font-medium leading-none mx-5 cursor-pointer duration-150 hover:text-gray-300 active:text-white">{children}</Link>;
 }
 
 function HeaderIcon({ url = "", icon, classes = "", ...rest }: any) {
