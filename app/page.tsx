@@ -16,7 +16,7 @@ export default function Home() {
                         <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.6, delay: 0.2 }} className="block">have Agentic <span className="grad-text">AI</span>?</motion.span></div>
                     </h1>
 
-                    <div className="mt-6 leading-loose max-xl:text-sm max-xl:font-medium max-xl:leading-6 max-md:text-center max-md:leading-relaxed max-md:text-base">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magnam eum voluptatum,<br/>necessitatibus fuga similique libero, omnis, vel molestias molestiae ut fugit repudiandae.</div>
+                    <div className="mt-6 leading-loose max-xl:text-sm max-xl:font-medium max-xl:leading-6 max-md:text-center max-md:leading-relaxed max-md:text-base">Vesper is an agentic AI Discord bot designed with effortless automation in mind.</div>
                 </div>
 
                 <div className="w-6/16 select-none max-xl:w-7/16 max-lg:w-1/2 max-md:hidden">
@@ -28,7 +28,7 @@ export default function Home() {
 
             <section className="w-full h-76 flex gap-10 max-md:flex-col max-md:gap-5 max-md:h-auto">
                 <Panel title="Streamline & Simplify" classes="w-1/2 relative overflow-hidden shadow-md max-md:w-full">
-                    <p className="block my-3.5 text-sm font-medium leading-relaxed relative z-10">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit error molestias hic, ipsum sapiente aperiam blanditiis asperiores quae aliquid commodi ea praesentium exercitationem cupiditate repellendus ut quis magni voluptatibus omnis! Corporis, aut.</p>
+                    <p className="block my-3.5 text-sm font-medium leading-relaxed relative z-10">Whether its moderation, channel management, role assignment or even just conversational participation, Vesper is the ideal assistant for your server.</p>
                     <Button url="/about" classes="block w-fit relative z-10">Learn More</Button>
 
                     <Logo className="w-auto h-full opacity-20 absolute z-0 scale-150 top-0 -right-10" />
