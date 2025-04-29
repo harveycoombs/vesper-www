@@ -20,9 +20,9 @@ export default function Home() {
                 </div>
 
                 <div className="w-6/16 select-none max-xl:w-7/16 max-lg:w-1/2 max-md:hidden">
-                    <HeroImage url="/images/hero.png" x="8.3333%" classes="mb-8 max-2xl:mb-5" />
-                    <HeroImage url="/images/hero.png" delay={0.1} classes="mb-8 max-2xl:mb-5" />
-                    <HeroImage url="/images/hero.png" delay={0.2} x="8.3333%" />
+                    <HeroImage url="/images/hero-1.png" x="8.3333%" classes="mb-8 max-2xl:mb-5" />
+                    <HeroImage url="/images/hero-2.png" delay={0.1} classes="mb-8 max-2xl:mb-5" />
+                    <HeroImage url="/images/hero-3.png" delay={0.2} x="8.3333%" />
                 </div>
             </section>
 
@@ -57,7 +57,7 @@ function HeroImage({ url, delay = 0, x = "0", classes = "" }: any) {
         <motion.img 
             src={url} 
             alt="Hero" 
-            className={`block w-11/12 h-auto rounded-xl shadow-md ${classes.length ? classes : ""}`}
+            className={`block w-11/12 h-28 rounded-xl shadow-md object-cover ${classes.length ? classes : ""}`}
             initial={{ x: "100%" }}
             animate={{ x }}
             transition={{ 
