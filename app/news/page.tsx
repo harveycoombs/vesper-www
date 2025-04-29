@@ -6,6 +6,10 @@ export default function NewsPage() {
                     <h1 className="block pt-18 text-6xl font-semibold text-white">News</h1>
                     <p className="block pt-3 leading-7">The latest information about the bot &amp; more.</p>
                 </article>
+
+                <article className="py-12 text-center text-sm">
+                    <span>Nothing here yet. Check back later.</span>
+                </article>
             </section>
         </main>
     )
