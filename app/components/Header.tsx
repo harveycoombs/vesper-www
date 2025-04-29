@@ -13,7 +13,7 @@ export default function Header() {
 
             <nav className="ml-41.25 max-lg:ml-0 max-md:hidden">
                 <HeaderLink url="/about">About</HeaderLink>
-                <HeaderLink url="/docs">Documentation</HeaderLink>
+                <HeaderLink url="https://harvey-coombs-1.gitbook.io/vesper" target="_blank" rel="noopener noreferrer">Documentation</HeaderLink>
                 <HeaderLink url="/news">News</HeaderLink>
                 <HeaderLink url="/support">Support</HeaderLink>
             </nav>

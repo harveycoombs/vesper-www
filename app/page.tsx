@@ -36,7 +36,7 @@ export default function Home() {
 
                 <Panel title="Join Our Discord" classes="w-1/2 relative overflow-hidden shadow-md max-md:w-full">
                     <div className="w-1/2 inline-block">
-                        <p className="block my-3.5 text-sm font-medium leading-relaxed">Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugiat repudiandae quis assumenda.</p>
+                        <p className="block my-3.5 text-sm font-medium leading-relaxed">Feel free to join the official Vesper Discord server for updates, support and interaction with the community.</p>
                         <Button url="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" classes="block w-fit" background="bg-[#5865F5]">Join Server</Button>
                     </div>
 
