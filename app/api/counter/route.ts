@@ -9,11 +9,8 @@ export async function GET(_: Request): Promise<NextResponse> {
 
 export async function POST(request: Request): Promise<NextResponse> {
     try {
-        const data = await request.formData();
-    
-        const count = parseInt(data.get("count")?.toString() ?? "0");
-        const token = data.get("token")?.toString() ?? "";
-    
+        const { count, token } = await request.json();
+
         if (!token?.length) return NextResponse.json({ error: "Unauthorised." }, { status: 401 });
     
         await updateServerCount(count);
