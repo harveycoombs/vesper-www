@@ -28,7 +28,7 @@ export default function Home() {
 
             <section className="w-full h-76 flex gap-10 max-md:flex-col max-md:gap-5 max-md:h-auto">
                 <Panel title="Streamline & Simplify" classes="w-1/2 relative overflow-hidden shadow-md max-md:w-full">
-                    <p className="block my-3.5 text-sm font-medium leading-relaxed relative z-10">Whether its moderation, channel management, role assignment or even just conversational participation, Vesper is the ideal assistant for your server.</p>
+                    <p className="block my-3.5 text-sm font-medium leading-relaxed relative z-10 max-sm:text-xs max-sm:my-2.25">Whether its moderation, channel management, role assignment or even just conversational participation, Vesper is the ideal assistant for your server.</p>
                     <Button url="/about" classes="block w-fit relative z-10">Learn More</Button>
 
                     <Logo className="w-auto h-full opacity-20 absolute z-0 scale-150 top-0 -right-10" />
@@ -36,7 +36,7 @@ export default function Home() {
 
                 <Panel title="Join Our Discord" classes="w-1/2 relative overflow-hidden shadow-md max-md:w-full">
                     <div className="w-1/2 inline-block">
-                        <p className="block my-3.5 text-sm font-medium leading-relaxed">Feel free to join the official Vesper Discord server for updates, support and interaction with the community.</p>
+                        <p className="block my-3.5 text-sm font-medium leading-relaxed max-sm:text-xs max-sm:my-2.25">Feel free to join the official Vesper Discord server for updates, support and interaction with the community.</p>
                         <Button url="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" classes="block w-fit" background="bg-[#5865F5]">Join Server</Button>
                     </div>
 
