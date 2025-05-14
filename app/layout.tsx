@@ -49,7 +49,7 @@ export default function RootLayout({
                 <link rel="canonical" href="https://vesper.gg" />
             </head>
 
-            <body className={`${inter.className} min-h-screen text-gray-500 bg-gradient-to-b bg-gray-950 from-gray-900 to-gray-950`}>
+            <body className={`${inter.className} min-h-screen text-gray-500 bg-gradient-to-b bg-gray-950 from-gray-900 to-gray-950 overflow-x-hidden`}>
                 <Header />
                 {children}
                 <Footer />
