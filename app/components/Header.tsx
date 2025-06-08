@@ -18,14 +18,14 @@ export default function Header() {
                     <Link href="/" className="duration-200 hover:opacity-80 active:opacity-70"><Logo width={38} height={30} /></Link>
                 
                     <HeaderLink url="/about">About</HeaderLink>
-                    <HeaderLink url="https://harvey-coombs-1.gitbook.io/vesper">Documentation</HeaderLink>
+                    <HeaderLink url="https://harvey-coombs-1.gitbook.io/vesper" target="_blank" rel="noopener noreferrer">Documentation</HeaderLink>
                     <HeaderLink url="/contact">Contact</HeaderLink>
                 </nav>
 
                 <div>
                     <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
                     <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
-                    <HeaderIcon url="https://discord.gg/aF4EctqgPS" icon={faDiscord} />
+                    <HeaderIcon url="https://discord.gg/aF4EctqgPS" icon={faDiscord} target="_blank" rel="noopener noreferrer" />
                 </div>
             </header>
 
@@ -44,7 +44,7 @@ export default function Header() {
     );
 }
 
-function HeaderLink({ url, children }: any) {
+function HeaderLink({ url, children, ...rest }: any) {
     return <Link href={url} className="text-sm font-medium select-none cursor-pointer duration-200 hover:text-white max-sm:hidden">{children}</Link>;
 }
 
