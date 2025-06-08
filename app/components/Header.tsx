@@ -2,7 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faLink } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faLink, faXmark } from "@fortawesome/free-solid-svg-icons";
 import { faDiscord } from "@fortawesome/free-brands-svg-icons";
 
 import Logo from "@/app/components/common/Logo";
@@ -12,7 +12,7 @@ export default function Header() {
     const [mobileMenuIsOpen, setMobileMenuOpen] = useState<boolean>(false);
 
     return (
-        <header className="py-5 w-250 mx-auto flex items-center justify-between sticky top-0 max-lg:w-full max-lg:px-5">
+        <header className="py-5 w-250 mx-auto flex items-center justify-between backdrop-blur-md sticky top-0 max-lg:w-full max-lg:px-5">
             <nav className="flex items-center gap-8">
                 <Logo width={38} height={30} />
             
@@ -29,10 +29,12 @@ export default function Header() {
 
             {mobileMenuIsOpen && (
                 <div className="fixed inset-0 w-screen h-screen bg-black/50 backdrop-blur-md z-50 grid place-items-center">
+                    <div className="absolute top-5 right-5 text-white text-3xl cursor-pointer duration-200 active:text-rose-300 active:scale-90" onClick={() => setMobileMenuOpen(false)}><FontAwesomeIcon icon={faXmark} /></div>
+
                     <div className="w-fit">
-                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 hover:text-rose-300 active:scale-90">About</Link>
-                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 hover:text-rose-300 active:scale-90">Documentation</Link>
-                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 hover:text-rose-300 active:scale-90">Contact</Link>
+                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 active:text-rose-300 active:scale-90">About</Link>
+                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 active:text-rose-300 active:scale-90">Documentation</Link>
+                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 active:text-rose-300 active:scale-90">Contact</Link>
                     </div>
                 </div>
             )}
