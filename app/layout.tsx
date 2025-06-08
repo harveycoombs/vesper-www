@@ -8,18 +8,18 @@ import Header from "@/app/components/Header";
 import Footer from "@/app/components/Footer";
 
 const inter = Inter({
-    weight: ["400", "500", "600", "700", "900"],
+    weight: ["400", "500", "600", "700", "800", "900"],
     subsets: ["latin"]
 });
 
-const description = "An agentic AI Discord bot.";
+const description = "An easy-to-use file sharing platform.";
 
 export const metadata: Metadata = {
     title: "Vesper · AI Discord Bot",
     description: description,
     icons: { icon: "/images/icon.png" },
     openGraph: {
-        title: "Vesper",
+        title: "Vesper · AI Discord Bot",
         description: description,
         url: "https://vesper.gg",
         images: [{
@@ -28,12 +28,13 @@ export const metadata: Metadata = {
             height: 630,
             alt: "Vesper splash image"
         }],
-        type: "website"
+        type: "website",
     },
     twitter: {
         card: "summary_large_image",
-        title: "Vesper",
-        description: description
+        title: "Vesper · AI Discord Bot",
+        description: description,
+        creator: "@harveycoombs23",
     }
 };
 
@@ -45,11 +46,13 @@ export default function RootLayout({
     return (
         <html lang="en">
             <head>
+                <meta name="theme-color" content="#FF2056" />
+
                 <link rel="apple-touch-icon" sizes="180x180" href="/images/icon.png" />
                 <link rel="canonical" href="https://vesper.gg" />
             </head>
 
-            <body className={`${inter.className} min-h-screen text-gray-500 bg-gradient-to-b bg-gray-950 from-gray-900 to-gray-950 overflow-x-hidden`}>
+            <body className={`${inter.className} h-screen bg-gradient-to-b from-zinc-950 to-black text-zinc-500`}>
                 <Header />
                 {children}
                 <Footer />

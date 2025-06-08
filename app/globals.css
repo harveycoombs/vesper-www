@@ -1,12 +1,17 @@
 @import "tailwindcss";
 
-.grad-text {
-    background: linear-gradient(to top, #FF2056, #F6339A);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
+@layer utilities {
+    * {
+        box-sizing: border-box;
+    }
 
-::selection {
-    background-color: #FA2A7A;
-    color: #FFFFFF;
+    :disabled {
+        cursor: not-allowed;
+        pointer-events: none;
+        opacity: 0.6;
+    }
+
+    ::placeholder {
+        user-select: none;
+    }
 }
