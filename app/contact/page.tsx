@@ -35,8 +35,8 @@ export default function Contact() {
     
     return (
         <main className="w-250 min-h-[calc(100vh-138px)] mx-auto max-lg:w-full max-lg:px-5">
-            <section className="pt-20">
-                <h1 className="block text-5xl font-semibold text-white text-center">About Vesper</h1>
+            <section className="pt-20 max-sm:pt-10">
+                <h1 className="block text-5xl font-semibold text-white text-center">Contact</h1>
             </section>
 
             <section className="mt-15">
@@ -47,7 +47,7 @@ export default function Contact() {
                 <form className="mt-8" onSubmit={submitEnquiry}>
                     {feedback}
                         
-                    <fieldset className="flex gap-5 w-full">
+                    <fieldset className="flex gap-6 w-full">
                         <div className="w-1/2">
                             <Label classes="block w-full mb-1">Your Name</Label>
                             <Field classes="block w-full" onInput={(e: any) => setName(e.target.value)} />
