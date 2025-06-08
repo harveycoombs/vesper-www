@@ -5,7 +5,7 @@ import Button from "./components/common/Button";
 
 export default function Home() {
     return (
-        <main className="w-250 h-screen mx-auto grid place-items-center">
+        <main className="w-250 h-[calc(100vh-138px)] mx-auto grid place-items-center">
             <section>
                 <h1 className="text-white text-6xl text-center leading-23 font-semibold">
                     <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.5 }} className="block">Who needs slash commands</motion.span></div>
@@ -23,8 +23,33 @@ export default function Home() {
             </section>
 
             <section>
+                <FeatureRow title="Server Management" image="/images/home/server-management.png">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dignissimos quisquam in aliquam ratione hic sed, asperiores aspernatur adipisci est magni aliquid doloremque, autem nulla esse.
+                </FeatureRow>
 
+                <FeatureRow title="Moderation" image="/images/home/moderation.png" reverse={true}>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dignissimos quisquam in aliquam ratione hic sed, asperiores aspernatur adipisci est magni aliquid doloremque, autem nulla esse.
+                </FeatureRow>
+
+                <FeatureRow title="And So Much More" image="/images/home/more.png">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dignissimos quisquam in aliquam ratione hic sed, asperiores aspernatur adipisci est magni aliquid doloremque, autem nulla esse.
+                </FeatureRow>             
             </section>
         </main>
+    );
+}
+
+function FeatureRow({ title, children, image, reverse = false }: any) {
+    return (
+        <article className={`flex items-center gap-10 ${reverse ? "flex-row-reverse" : ""} mb-12 select-none`}>
+            <div className="w-1/2">
+                <h2 className="block mb-2.25 text-xl font-semibold text-white">{title}</h2>
+                <p className="text-sm leading-6">{children}</p>
+            </div>
+
+            <div className="w-1/2">
+                <img src={image} alt={title} className="w-full h-auto rounded-lg aspect-[60/17] object-cover" />
+            </div>
+        </article>        
     );
 }
