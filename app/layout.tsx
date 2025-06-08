@@ -52,7 +52,7 @@ export default function RootLayout({
                 <link rel="canonical" href="https://vesper.gg" />
             </head>
 
-            <body className={`${inter.className} h-screen bg-gradient-to-b from-zinc-950 to-black text-zinc-500`}>
+            <body className={`${inter.className} min-h-screen bg-gradient-to-b from-zinc-950 to-black text-zinc-500`}>
                 <Header />
                 {children}
                 <Footer />

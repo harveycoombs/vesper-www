@@ -8,7 +8,7 @@ import Button from "@/app/components/common/Button";
 
 export default function Header() {
     return (
-        <header className="py-5 w-200 mx-auto flex items-center justify-between">
+        <header className="py-5 w-250 mx-auto flex items-center justify-between sticky top-0">
             <nav className="flex items-center gap-8">
                 <Logo width={38} height={30} />
             
