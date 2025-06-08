@@ -22,10 +22,20 @@ export default function Header() {
             </nav>
 
             <div>
-                <HeaderIcon icon={faBars} onClick={() => setMobileMenuOpen(true)} />
+                <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
                 <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
                 <HeaderIcon url="https://discord.gg/aF4EctqgPS" icon={faDiscord} />
-            </div>  
+            </div>
+
+            {mobileMenuIsOpen && (
+                <div className="fixed inset-0 w-screen h-screen bg-black/50 backdrop-blur-md z-50 grid place-items-center">
+                    <div className="w-fit">
+                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 hover:text-rose-300 active:scale-90">About</Link>
+                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 hover:text-rose-300 active:scale-90">Documentation</Link>
+                        <Link href="/" className="block text-white text-xl text-center font-medium my-6 duration-200 hover:text-rose-300 active:scale-90">Contact</Link>
+                    </div>
+                </div>
+            )}
         </header>
     );
 }
@@ -34,7 +44,7 @@ function HeaderLink({ url, children }: any) {
     return <Link href={url} className="text-sm font-medium select-none cursor-pointer duration-200 hover:text-white">{children}</Link>;
 }
 
-function HeaderIcon({ url = "", icon, ...rest }: any) {
-    const classList = "inline-block align-middle text-xl leading-none text-zinc-600 select-none cursor-pointer duration-200 hover:text-white";  
+function HeaderIcon({ url = "", icon, classes = "", ...rest }: any) {
+    const classList = `inline-block align-middle text-xl leading-none text-zinc-600 select-none cursor-pointer duration-200 hover:text-white ${classes}`;  
     return url.length ? <Link href={url} className={classList} {...rest}><FontAwesomeIcon icon={icon} /></Link> : <button className={classList} {...rest}><FontAwesomeIcon icon={icon} /></button>;
 }

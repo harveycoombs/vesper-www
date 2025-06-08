@@ -49,7 +49,7 @@ function FeatureRow({ title, children, image, delay = 0, reverse = false }: any)
                 type: "spring", 
                 stiffness: 100, 
                 damping: 12,
-                delay: delay
+                delay
             }}
         >
             <div className="w-1/2 max-md:w-full">
