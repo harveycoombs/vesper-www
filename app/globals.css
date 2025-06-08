@@ -14,4 +14,9 @@
     ::placeholder {
         user-select: none;
     }
+
+    ::selection {
+        background-color: #FF2056;
+        color: #FFFFFF;
+    }
 }

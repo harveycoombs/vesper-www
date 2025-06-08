@@ -4,6 +4,7 @@ import { useState } from "react";
 import Label from "@/app/components/common/Label";
 import Field from "@/app/components/common/Field";
 import Button from "@/app/components/common/Button";
+import Link from "next/link";
 
 export default function Contact() {
     const [name, setName] = useState<string>("");
@@ -48,23 +49,25 @@ export default function Contact() {
                 <form className="mt-8" onSubmit={submitEnquiry}>
                     {feedback}
                         
-                    <fieldset className="flex gap-6 w-full">
-                        <div className="w-1/2">
+                    <fieldset className="flex gap-6 w-full max-sm:flex-col max-sm:gap-4">
+                        <div className="w-1/2 max-sm:w-full">
                             <Label classes="block w-full mb-1">Your Name</Label>
                             <Field classes="block w-full" onInput={(e: any) => setName(e.target.value)} />
                         </div>
 
-                        <div className="w-1/2">
+                        <div className="w-1/2 max-sm:w-full">
                             <Label classes="block w-full mb-1">Your Email</Label>
                             <Field classes="block w-full" onInput={(e: any) => setEmail(e.target.value)} />
                         </div>
                     </fieldset>
 
                     <Label classes="block w-full mb-1 mt-4">Your Message</Label>
-                    <textarea className="block w-full px-4.5 py-3 rounded-md text-[0.8rem] leading-none resize-vertical min-h-20 max-h-80 duration-200 text-zinc-300 bg-zinc-900" rows={10}></textarea>
+                    <textarea className="block w-full px-4.5 py-3 rounded-md text-[0.8rem] leading-none resize-vertical min-h-20 max-h-80 duration-200 text-zinc-300 bg-zinc-900" rows={10} onInput={(e: any) => setMessage(e.target.value)}></textarea>
 
                     <Button classes="block w-full mt-4" loading={loading}>Submit</Button>
                 </form>
+
+                <p className="leading-7 mt-8">Alternatively, join the official <Link href="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Vesper Discord server</Link> to keep up to date and to receive support.</p>
             </section>
         </main>
     );
