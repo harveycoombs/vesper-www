@@ -3,6 +3,7 @@ import { useState } from "react";
 
 import Label from "@/app/components/common/Label";
 import Field from "@/app/components/common/Field";
+import Button from "@/app/components/common/Button";
 
 export default function Contact() {
     const [name, setName] = useState<string>("");
@@ -25,7 +26,7 @@ export default function Contact() {
 
         setLoading(false);
 
-        if (response.ok) {
+        if (!response.ok) {
             setFeedback(<div className="rounded text-sm font-medium py-1 px-1.5 mb-3 select-none bg-red-200 text-red-500">Something went wrong. Please try again later.</div>);            
             return;
         }
@@ -61,6 +62,8 @@ export default function Contact() {
 
                     <Label classes="block w-full mb-1 mt-4">Your Message</Label>
                     <textarea className="block w-full px-4.5 py-3 rounded-md text-[0.8rem] leading-none resize-vertical min-h-20 max-h-80 duration-200 text-zinc-300 bg-zinc-900" rows={10}></textarea>
+
+                    <Button classes="block w-full mt-4" loading={loading}>Submit</Button>
                 </form>
             </section>
         </main>
