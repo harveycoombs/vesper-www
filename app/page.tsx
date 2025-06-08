@@ -12,7 +12,7 @@ export default function Home() {
                     <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.5, delay: 0.25 }} className="block">when you have <span className="text-rose-500">Agentic AI</span>?</motion.span></div>
                 </h1>
 
-                <motion.div className="mt-12" initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.6 }}>
+                <motion.div className="mt-12" initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.7 }}>
                     <p className="text-lg text-center block">Vesper is an agentic AI Discord bot designed with effortless automation in mind.</p>
 
                     <div className="w-fit mx-auto mt-14">
