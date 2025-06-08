@@ -1,9 +1,26 @@
 "use client";
+import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 import Button from "@/app/components/common/Button";
 
 export default function Home() {
+    const [serverCount, setServerCount] = useState<number>(0);
+
+    useEffect(() => {
+        (async () => {
+            const response = await fetch("/api/counter");
+            const data = await response.json();
+
+            if (!response.ok) {
+                console.log(`Failed to fetch server count.\nStatus code: ${response.status}`);
+                return;
+            }
+
+            setServerCount(data.count);
+        })();
+    }, []);
+
     return (
         <main className="w-250 min-h-[calc(100vh-138px)] mx-auto grid place-items-center max-lg:w-full max-lg:px-5 max-md:block">
             <section className="max-md:pb-6">
@@ -15,7 +32,9 @@ export default function Home() {
                 <motion.div className="mt-12 max-lg:mt-8 max-md:mt-4.5" initial={{ opacity: 0, y: 35 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.4, delay: 0.7 }}>
                     <p className="text-lg text-center block max-lg:text-base">Vesper is an agentic AI Discord bot designed with effortless automation in mind.</p>
 
-                    <div className="w-fit mx-auto mt-14 max-lg:mt-12 max-md:mt-8">
+                    <div className="py-1.75 px-2.25 rounded-md w-fit mx-auto mt-6 text-sm font-medium leading-none select-none text-zinc-300 bg-zinc-800/75">Active in {(new Intl.NumberFormat("en-US")).format(serverCount)} server{serverCount == 1 ? "" : "s"}</div>
+
+                    <div className="w-fit mx-auto mt-7 max-lg:mt-12 max-md:mt-8">
                         <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" classes="inline-block align-middle w-32">Get Started</Button>
                         <Button url="/about" classes="inline-block align-middle w-32 ml-4" alt={true}>Learn More</Button>
                     </div>
