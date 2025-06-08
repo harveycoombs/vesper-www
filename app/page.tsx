@@ -1,11 +1,11 @@
 "use client";
-
 import { motion } from "motion/react";
-import Button from "./components/common/Button";
+
+import Button from "@/app/components/common/Button";
 
 export default function Home() {
     return (
-        <main className="w-250 h-[calc(100vh-138px)] mx-auto grid place-items-center">
+        <main className="w-250 min-h-[calc(100vh-138px)] mx-auto grid place-items-center max-lg:w-full max-lg:px-5">
             <section>
                 <h1 className="text-white text-6xl text-center leading-23 font-semibold">
                     <div className="overflow-hidden"><motion.span initial={{ y: "100%" }} animate={{ y: 0 }} transition={{ duration: 0.5 }} className="block">Who needs slash commands</motion.span></div>
