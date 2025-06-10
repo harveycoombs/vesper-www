@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 import Button from "@/app/components/common/Button";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
     const [serverCount, setServerCount] = useState<number>(0);
@@ -43,15 +44,15 @@ export default function Home() {
 
             <section className="overflow-hidden">
                 <FeatureRow title="Server Management" image="/images/home/server-management.png" delay={1.1}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dignissimos quisquam in aliquam ratione hic sed, asperiores aspernatur adipisci est magni aliquid doloremque, autem nulla esse.
+                    Vesper can be used to manage just about every aspect of your server, whether its role assignments, channel management, emojis and more. Vesper is the perfect sidekick for setting up and managing your server.
                 </FeatureRow>
 
                 <FeatureRow title="Moderation" image="/images/home/moderation.png" delay={1.3} reverse={true}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dignissimos quisquam in aliquam ratione hic sed, asperiores aspernatur adipisci est magni aliquid doloremque, autem nulla esse.
+                    Vesper can also be used to moderate your server, with features such as word filters, banning/kicking, timeouts or spam detection. Vesper will keep your server safe and free from unwanted content or users.
                 </FeatureRow>
 
                 <FeatureRow title="And So Much More" image="/images/home/more.png" delay={1.5}>
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus dignissimos quisquam in aliquam ratione hic sed, asperiores aspernatur adipisci est magni aliquid doloremque, autem nulla esse.
+                    In addition to the features mentioned above, Vesper can do so much more and can hold conversations with users. Vesper will fit right into your community as an friendly and helpful assistant.
                 </FeatureRow>             
             </section>
         </main>
