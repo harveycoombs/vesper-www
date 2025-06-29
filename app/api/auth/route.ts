@@ -2,8 +2,9 @@ import { NextRequest, NextResponse } from "next/server";
 import fetch from "node-fetch";
 import jwt from "jsonwebtoken";
 
-export async function GET(req: NextRequest) {
-    const code = req.nextUrl.searchParams.get("code");
+export async function GET(request: NextRequest) {
+    const code = new URL(request.url).searchParams.get("code") ?? "";
+
     if (!code) return NextResponse.json({ error: "Missing code" }, { status: 400 });
 
     const tokenRes = await fetch("https://discord.com/api/oauth2/token", {
