@@ -1,5 +1,5 @@
 "use client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faLink, faRightToBracket, faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -9,6 +9,16 @@ import Button from "@/app/components/common/Button";
 
 export default function Header() {
     const [mobileMenuIsOpen, setMobileMenuOpen] = useState<boolean>(false);
+    const [user, setUser] = useState<any>(null);
+
+    useEffect(() => {
+        (async () => {
+            const response = await fetch("/api/user");
+            const data = await response.json();
+
+            if (response.ok) setUser(data.user);
+        })();
+    }, []);
 
     return (
         <>
@@ -24,7 +34,7 @@ export default function Header() {
                 <div>
                     <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
                     <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
-                    <HeaderIcon url="/" icon={faRightToBracket} title="Log in with Discord" />
+                    {user ? <div>{JSON.stringify(user)}</div> : <HeaderIcon url="https://discord.com/oauth2/authorize?client_id=1388964034946011158&response_type=code&redirect_uri=https%3A%2F%2Fvesper.gg%2Fapi%2Fauth&scope=identify+email" icon={faRightToBracket} title="Log in with Discord" />}
                 </div>
             </header>
 
