@@ -22,6 +22,8 @@ export async function GET(request: NextRequest) {
                 scope: "identify"
             })
         });
+
+        if (!tokenRes.ok) return NextResponse.json({ error: "Unable to exchange code for access token.", details: tokenRes }, { status: 400 });
     
         const details: any = await tokenRes.json();
     
@@ -33,6 +35,8 @@ export async function GET(request: NextRequest) {
             }
         });
     
+        if (!userResponse.ok) return NextResponse.json({ error: "Unable to fetch user details.", details: userResponse }, { status: 400 });
+
         const user: any = await userResponse.json();
     
         if (!user?.id?.length) return NextResponse.json({ error: "Unable to fetch user details.", details: user }, { status: 400 });
@@ -53,6 +57,6 @@ export async function GET(request: NextRequest) {
     
         return response;
     } catch (ex: any) {
-        return NextResponse.json({ error: "An error occurred while exchanging code for access token.", details: ex }, { status: 400 });
+        return NextResponse.json({ error: "An error occurred while exchanging code for access token.", details: ex.message }, { status: 400 });
     }
 }
