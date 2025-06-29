@@ -47,7 +47,7 @@ export async function GET(request: NextRequest) {
             avatar: user.avatar,
         }, process.env.JWT_SECRET ?? "");
     
-        const response = NextResponse.redirect("/");
+        const response = NextResponse.redirect("https://vesper.gg/");
     
         response.cookies.set("token", credentials, {
             httpOnly: true,
