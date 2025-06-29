@@ -1,7 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faLink, faRightToBracket, faXmark } from "@fortawesome/free-solid-svg-icons";
 
@@ -35,7 +34,7 @@ export default function Header() {
                 <div>
                     <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
                     <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
-                    {user ? <Image src={`https://cdn.discordapp.com/avatars/${user?.id ?? "0"}/${user?.avatar ?? "0"}.png`} alt={user?.username ?? "Unknown User"} title={`Signed in as ${user?.username ?? "Unknown User"}`} width={32} height={32} /> : <HeaderIcon url="https://discord.com/oauth2/authorize?client_id=1388964034946011158&response_type=code&redirect_uri=https%3A%2F%2Fvesper.gg%2Fapi%2Fauth&scope=identify+email" icon={faRightToBracket} title="Log in with Discord" />}
+                    {user ? <img src={`https://cdn.discordapp.com/avatars/${user?.id ?? "0"}/${user?.avatar ?? "0"}.png`} alt={user?.username ?? "Unknown User"} title={`Signed in as ${user?.username ?? "Unknown User"}`} width={32} height={32} /> : <HeaderIcon url="https://discord.com/oauth2/authorize?client_id=1388964034946011158&response_type=code&redirect_uri=https%3A%2F%2Fvesper.gg%2Fapi%2Fauth&scope=identify+email" icon={faRightToBracket} title="Log in with Discord" />}
                 </div>  
             </header>
 
