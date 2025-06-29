@@ -2,8 +2,7 @@
 import { useState } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars, faLink, faXmark } from "@fortawesome/free-solid-svg-icons";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faBars, faLink, faRightToBracket, faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Logo from "@/app/components/common/Logo";
 import Button from "@/app/components/common/Button";
@@ -25,7 +24,7 @@ export default function Header() {
                 <div>
                     <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
                     <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
-                    <HeaderIcon url="https://discord.gg/aF4EctqgPS" icon={faDiscord} target="_blank" rel="noopener noreferrer" />
+                    <HeaderIcon url="/" icon={faRightToBracket} title="Log in with Discord" />
                 </div>
             </header>
 
