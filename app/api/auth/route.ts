@@ -8,7 +8,7 @@ export async function GET(request: NextRequest) {
 
         if (!code) return NextResponse.json({ error: "Missing code" }, { status: 400 });
     
-        const tokenRes = await fetch("https://discord.com/api/oauth2/token", {
+        const tokenResponse = await fetch("https://discord.com/api/oauth2/token", {
             method: "POST",
             headers: {
                 "Content-Type": "application/x-www-form-urlencoded"
@@ -23,9 +23,9 @@ export async function GET(request: NextRequest) {
             })
         });
 
-        if (!tokenRes.ok) return NextResponse.json({ error: "Unable to exchange code for access token.", details: tokenRes }, { status: 400 });
+        if (!tokenResponse.ok) return NextResponse.json({ error: "Unable to exchange code for access token.", details: tokenResponse }, { status: 400 });
     
-        const details: any = await tokenRes.json();
+        const details: any = await tokenResponse.json();
     
         if (!details?.access_token?.length) return NextResponse.json({ error: "Unable to exchange code for access token.", details: details }, { status: 400 });
     

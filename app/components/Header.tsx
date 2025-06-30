@@ -17,6 +17,8 @@ export default function Header() {
             const data = await response.json();
 
             if (response.ok) setUser(data.user);
+
+            console.log(data.user);
         })();
     }, []);
 

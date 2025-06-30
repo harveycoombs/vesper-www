@@ -3,7 +3,6 @@ import { useEffect, useState } from "react";
 import { motion } from "motion/react";
 
 import Button from "@/app/components/common/Button";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function Home() {
     const [serverCount, setServerCount] = useState<number>(0);
