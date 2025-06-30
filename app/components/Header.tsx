@@ -22,21 +22,23 @@ export default function Header() {
 
     return (
         <>
-            <header className="py-5 w-250 mx-auto flex items-center justify-between backdrop-blur-md sticky top-0 z-10 max-lg:w-full max-lg:px-5">
-                <nav className="flex items-center gap-8">
-                    <Link href="/" className="duration-200 hover:opacity-80 active:opacity-70"><Logo width={38} height={30} /></Link>
-                
-                    <HeaderLink url="/about">About</HeaderLink>
-                    <HeaderLink url="https://harvey-coombs-1.gitbook.io/vesper" target="_blank" rel="noopener noreferrer">Documentation</HeaderLink>
-                    <HeaderLink url="/contact">Contact</HeaderLink>
-                </nav>
+            <header className="py-5 backdrop-blur-md sticky top-0 z-10 max-lg:w-full max-lg:px-5">
+                <div className="w-250 mx-auto flex items-center justify-between">
+                    <nav className="flex items-center gap-8">
+                        <Link href="/" className="duration-200 hover:opacity-80 active:opacity-70"><Logo width={38} height={30} /></Link>
+                    
+                        <HeaderLink url="/about">About</HeaderLink>
+                        <HeaderLink url="https://harvey-coombs-1.gitbook.io/vesper" target="_blank" rel="noopener noreferrer">Documentation</HeaderLink>
+                        <HeaderLink url="/contact">Contact</HeaderLink>
+                    </nav>
 
-                <div>
-                    <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
-                    <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
-                    {user ? <img src={`https://cdn.discordapp.com/avatars/${user?.id ?? "0"}/${user?.avatar ?? "0"}.png`} alt={user?.username ?? "Unknown User"} title={`Signed in as ${user?.username ?? "Unknown User"}`} className="w-9 h-9 inline-block align-middle cursor-pointer select-none duration-200 rounded-full hover:opacity-80 active:opacity-70" />
-                    : <HeaderIcon url="https://discord.com/oauth2/authorize?client_id=1388964034946011158&response_type=code&redirect_uri=https%3A%2F%2Fvesper.gg%2Fapi%2Fauth&scope=identify+email" icon={faRightToBracket} title="Log in with Discord" />}
-                </div>  
+                    <div>
+                        <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
+                        <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
+                        {user ? <img src={`https://cdn.discordapp.com/avatars/${user?.id ?? "0"}/${user?.avatar ?? "0"}.png`} alt={user?.username ?? "Unknown User"} title={`Signed in as ${user?.username ?? "Unknown User"}`} className="w-9 h-9 inline-block align-middle cursor-pointer select-none duration-200 rounded-full hover:opacity-80 active:opacity-70" />
+                        : <HeaderIcon url="https://discord.com/oauth2/authorize?client_id=1388964034946011158&response_type=code&redirect_uri=https%3A%2F%2Fvesper.gg%2Fapi%2Fauth&scope=identify+email" icon={faRightToBracket} title="Log in with Discord" />}
+                    </div>
+                </div> 
             </header>
 
             {mobileMenuIsOpen && (
