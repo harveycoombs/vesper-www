@@ -2,18 +2,16 @@
 import { useState, useEffect } from "react";
 
 export default function Manage() {
-    const [servers, setServers] = useState<any[]>([{
-        guild_id: "1234567890",
-    }]);
+    const [servers, setServers] = useState<any[]>([]);
     
     useEffect(() => {
         (async () => {
-            const response = await fetch("/api/servers");
+            const response = await fetch("/api/user/servers");
 
             if (!response.ok) return;
 
             const data = await response.json();
-            setServers(data.servers);
+            setServers(data.guilds);
         })();
     }, []);
 
@@ -43,8 +41,8 @@ function Panel({ title, children, ...rest }: any) {
 
 function ServerCard({ data }: any) {
     return (
-        <div>
-            
+        <div className="flex justify-between items-center">
+            {JSON.stringify(data)}
         </div>
     );
 }
