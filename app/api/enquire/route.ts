@@ -1,7 +1,5 @@
 import { NextResponse } from "next/server";
-import { EmailParams, Recipient } from "mailersend";
-
-import sendEmail from "@/lib/mail";
+import { Resend } from "resend";
 
 export async function POST(request: Request) {
     const data = await request.formData();
@@ -13,17 +11,18 @@ export async function POST(request: Request) {
     if (!name.length || !email.length || !message.length) return NextResponse.json({ error: "One or more fields were not provided." }, { status: 400 });
 
     try {
-        const recipients = [new Recipient("contact@harveycoombs.com", "Harvey Coombs")];
-        
-        const emailParams = new EmailParams()
-            .setFrom({ email, name })
-            .setSubject(`${name} - Vesper Enquiry`)
-            .setHtml(`<p>${message}</p>`);
-    
-        await sendEmail(emailParams, recipients);
+        const resend = new Resend(process.env.RESEND_API_KEY ?? "");
+
+        const result = await resend.emails.send({
+            from: email,
+            to: "contact@harveycoombs.com",
+            subject: `${name} - Vesper Enquiry`,
+            html: `<p>${message}</p>`
+        });
+
+        return NextResponse.json({ result });
     } catch (ex: any) {
         console.error(ex);
+        return NextResponse.json({ error: "Unable to submit enquiry." }, { status: 500 });
     }
-
-    return NextResponse.json({ message: "Enquiry received" });
 }
