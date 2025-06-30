@@ -55,7 +55,7 @@ export default function Header() {
 }
 
 function HeaderLink({ url, children, ...rest }: any) {
-    return <Link href={url} className="text-sm font-medium select-none cursor-pointer duration-200 hover:text-white max-sm:hidden">{children}</Link>;
+    return <Link href={url} className="text-sm font-medium select-none cursor-pointer duration-200 hover:text-white max-sm:hidden" {...rest}>{children}</Link>;
 }
 
 function HeaderIcon({ url = "", icon, classes = "", ...rest }: any) {
