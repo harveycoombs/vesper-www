@@ -9,16 +9,21 @@ import Button from "@/app/components/common/Button";
 
 export default function Header() {
     const [mobileMenuIsOpen, setMobileMenuOpen] = useState<boolean>(false);
-    const [user, setUser] = useState<any>(null);
+    const [user, setUser] = useState<any>({
+        avatar: "525b28765c89363c708d1d4e087f7d5c",
+        iat: 1751233958,
+        id: "938196905144496139",
+        username: "harvey.ai"
+    });
 
     useEffect(() => {
         (async () => {
             const response = await fetch("/api/user");
+
+            if (!response.ok) return;
+
             const data = await response.json();
-
-            if (response.ok) setUser(data.user);
-
-            console.log(data.user);
+            setUser(data.user);
         })();
     }, []);
 
@@ -37,7 +42,15 @@ export default function Header() {
                     <div>
                         <HeaderIcon icon={faBars} classes="sm:hidden" onClick={() => setMobileMenuOpen(true)} />
                         <Button url="https://discord.com/oauth2/authorize?client_id=1028726248861605999&permissions=8&integration_type=0&scope=applications.commands+bot" target="_blank" rel="noopener noreferrer" classes="inline-block align-middle mx-4.5"><FontAwesomeIcon icon={faLink} className="text-rose-300 mr-1.5" />Invite</Button>
-                        {user ? <img src={`https://cdn.discordapp.com/avatars/${user?.id ?? "0"}/${user?.avatar ?? "0"}.png`} alt={user?.username ?? "Unknown User"} title={`Signed in as ${user?.username ?? "Unknown User"}`} className="w-9 h-9 inline-block align-middle cursor-pointer select-none duration-200 rounded-full hover:opacity-80 active:opacity-70" />
+                        {user ? (
+                            <Link href="/manage" className="inline-block align-middle cursor-pointer select-none duration-200 hover:opacity-80 active:opacity-70">
+                                <img 
+                                    src={`https://cdn.discordapp.com/avatars/${user?.id ?? "0"}/${user?.avatar ?? "0"}.png`}
+                                    alt={user?.username ?? "Unknown User"} title={`Signed in as ${user?.username ?? "Unknown User"}`} 
+                                    className="block w-9 h-9 object-cover rounded-full"
+                                />
+                            </Link>
+                        )
                         : <HeaderIcon url="https://discord.com/oauth2/authorize?client_id=1388964034946011158&response_type=code&redirect_uri=https%3A%2F%2Fvesper.gg%2Fapi%2Fauth&scope=identify+email" icon={faRightToBracket} title="Log in with Discord" />}
                     </div>
                 </div> 
