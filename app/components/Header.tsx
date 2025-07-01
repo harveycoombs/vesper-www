@@ -29,8 +29,8 @@ export default function Header() {
 
     return (
         <>
-            <header className="py-5 backdrop-blur-md sticky top-0 z-10 max-lg:w-full max-lg:px-5">
-                <div className="w-250 mx-auto flex items-center justify-between">
+            <header className="py-5 backdrop-blur-md sticky top-0 z-10">
+                <div className="w-250 mx-auto flex items-center justify-between max-lg:w-full max-lg:px-5">
                     <nav className="flex items-center gap-8">
                         <Link href="/" className="duration-200 hover:opacity-80 active:opacity-70"><Logo width={38} height={30} /></Link>
                     
