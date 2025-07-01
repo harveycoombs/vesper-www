@@ -5,6 +5,16 @@ import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Panel from "@/app/components/common/Panel";
 
+async function removeServer(id: string, target: any) {
+    const response = await fetch(`/api/user/servers/${id}`, {
+        method: "DELETE"
+    });
+
+    if (!response.ok) return;
+
+    target.closest("article")?.remove();
+}
+
 export default function Manage() {
     const [servers, setServers] = useState<any[]>([]);
     const [serversLoading, setServersLoading] = useState<boolean>(false);
@@ -41,7 +51,7 @@ export default function Manage() {
 
 function ServerCard({ data }: any) {
     return (
-        <div className="p-2.5 rounded-md mt-2 flex justify-between items-center bg-zinc-700/60">
+        <article className="p-2.5 rounded-md mt-2 flex justify-between items-center bg-zinc-700/60">
             <div>
                 <img src={`https://cdn.discordapp.com/icons/${data.id}/${data.icon}.png`} alt={data.name} draggable={false} className="w-11 h-11 rounded-full object-cover select-none inline-block align-middle" />
                 <div className="inline-block align-middle ml-2.5">
@@ -51,9 +61,9 @@ function ServerCard({ data }: any) {
             </div>
 
             <div className="mr-1.5">
-                <ServerOption icon={faXmark} title="Remove Server" onClick={() => {}} />
+                <ServerOption icon={faXmark} title="Remove Server" onClick={(e: any) => removeServer(data.id, e.target)} />
             </div>
-        </div>
+        </article>
     );
 }
 
