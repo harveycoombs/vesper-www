@@ -1,15 +1,21 @@
 "use client";
 import { useState, useEffect } from "react";
-import Image from "next/image";
-import { faXmark } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faXmark } from "@fortawesome/free-solid-svg-icons";
+
+import Panel from "@/app/components/common/Panel";
 
 export default function Manage() {
     const [servers, setServers] = useState<any[]>([]);
-    
+    const [serversLoading, setServersLoading] = useState<boolean>(false);
+
     useEffect(() => {
+        setServersLoading(true);
+
         (async () => {
             const response = await fetch("/api/user/servers");
+
+            setServersLoading(false);
 
             if (!response.ok) return;
 
@@ -21,24 +27,15 @@ export default function Manage() {
     return (
         <main className="w-250 min-h-[calc(100vh-138px)] mx-auto">
             <section>
-                <Panel title="Servers">
+                <Panel title="Servers" classes="mb-4" loading={serversLoading}>
                     {servers.map(server => <ServerCard key={server.id} data={server} />)}
                 </Panel>
 
                 <Panel title="Settings">
-                    
+                    a
                 </Panel>
             </section>
         </main>
-    );
-}
-
-function Panel({ title, children, ...rest }: any) {
-    return (
-        <div className="p-3.5 rounded-md bg-zinc-800" {...rest}>
-            <strong className="block text-sm leading-none font-semibold text-zinc-400/75 select-none">{title}</strong>
-            {children}
-        </div>
     );
 }
 
