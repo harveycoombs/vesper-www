@@ -25,7 +25,7 @@ export default function Manage() {
     }, []);
 
     return (
-        <main className="w-250 min-h-[calc(100vh-138px)] mx-auto">
+        <main className="w-250 min-h-[calc(100vh-138px)] mx-auto pt-4.5">
             <section>
                 <Panel title="Servers" classes="mb-4" loading={serversLoading}>
                     {servers.map(server => <ServerCard key={server.id} data={server} />)}
