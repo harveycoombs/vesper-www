@@ -9,12 +9,7 @@ import Button from "@/app/components/common/Button";
 
 export default function Header() {
     const [mobileMenuIsOpen, setMobileMenuOpen] = useState<boolean>(false);
-    const [user, setUser] = useState<any>({
-        avatar: "525b28765c89363c708d1d4e087f7d5c",
-        iat: 1751233958,
-        id: "938196905144496139",
-        username: "harvey.ai"
-    });
+    const [user, setUser] = useState<any>(null);
 
     useEffect(() => {
         (async () => {
