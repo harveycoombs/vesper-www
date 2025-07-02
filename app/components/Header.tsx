@@ -12,6 +12,16 @@ export default function Header() {
     const [user, setUser] = useState<any>(null);
 
     useEffect(() => {
+        if (window.location.origin.indexOf("localhost") != -1) {
+            setUser({
+                avatar: "525b28765c89363c708d1d4e087f7d5c",
+                iat: 1751233958,
+                id: "938196905144496139",
+                username: "harvey.ai"
+            });
+            return;
+        }
+
         (async () => {
             const response = await fetch("/api/user");
 

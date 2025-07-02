@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Panel from "@/app/components/common/Panel";
+import Button from "../components/common/Button";
 
 async function removeServer(id: string, target: any) {
     const response = await fetch(`/api/user/servers/${id}`, {
@@ -42,7 +43,7 @@ export default function Manage() {
                 </Panel>
 
                 <Panel title="Settings">
-                    a
+                    <Button alt={true}>Click Me</Button>
                 </Panel>
             </section>
         </main>
