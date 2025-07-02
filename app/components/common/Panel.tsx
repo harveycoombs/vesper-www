@@ -11,9 +11,9 @@ interface Properties {
 
 export default function Panel({ title = "", loading = false, classes = "", children, ...rest }: Properties) {
     return (
-        <div className={`p-3.5 rounded-md bg-zinc-900 border border-zinc-800 shadow-[inset_0_0_30px_2px_rgba(255,255,255,0.05)] ${classes}`} {...rest}>
-            {title.length > 0 && <strong className="block text-sm leading-none font-semibold text-zinc-400/75 select-none mb-2.5">{title}</strong>}
-            {loading ? <FontAwesomeIcon icon={faCircleNotch} className="text-zinc-500 text-xl animate-spin" /> : children}
+        <div className={`p-4.5 rounded-xl bg-zinc-900/90 text-zinc-400 backdrop-blur-lg border border-white/5 shadow-[inset_-2px_-2px_4px_rgba(255,255,255,0.1),inset_2px_2px_4px_rgba(0,0,0,0.3),0_4px_15px_rgba(0,0,0,0.2)] ${classes}`} {...rest}>
+            {title.length > 0 && <strong className="block text-sm leading-none font-medium text-white select-none mb-3.5 tracking-wide">{title}</strong>}
+            {loading ? <FontAwesomeIcon icon={faCircleNotch} className="text-zinc-400 text-xl animate-spin" /> : children}
         </div>
     );
 }
