@@ -7,5 +7,5 @@ interface Properties {
 }
 
 export default function Field({ type = "text", classes = "", ...rest }: Properties) {
-    return <input type={type} className={`px-4.5 py-3 rounded-xl text-[0.8rem] leading-none duration-200 text-zinc-300 bg-zinc-900 ${classes}`} {...rest} />;
+    return <input type={type} className={`px-4 py-2.75 rounded-xl text-[0.8rem] leading-none duration-200 text-zinc-300 bg-zinc-800 border border-zinc-700/65 focus:outline-none focus:border-zinc-600 ${classes}`} {...rest} />;
 }

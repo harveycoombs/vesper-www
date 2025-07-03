@@ -4,7 +4,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
 
 import Panel from "@/app/components/common/Panel";
-import Button from "../components/common/Button";
+import Button from "@/app/components/common/Button";
+import Menu from "@/app/components/common/Menu";
 
 async function removeServer(id: string, target: any) {
     const response = await fetch(`/api/user/servers/${id}`, {
@@ -42,8 +43,12 @@ export default function Manage() {
                     {servers.map(server => <ServerCard key={server.id} data={server} />)}
                 </Panel>
 
-                <Panel title="Bot Settings">
-                    Model choice
+                <Panel title="Bot Settings" classes="mb-4">
+                    <FieldContainer title="Model">
+                        <Menu>
+                            <option value="qwen-3-30b-a3b-iq3_m" selected>Qwen 3 30B A3B (IQ3_M quantized)</option>
+                        </Menu>
+                    </FieldContainer>
                 </Panel>
 
                 <Panel title="Account Settings">
@@ -87,6 +92,15 @@ function ServerOption({ icon, ...rest }: any) {
             {...rest}
         >
             <FontAwesomeIcon icon={icon} className="text-lg" />
+        </div>
+    );
+}
+
+function FieldContainer({ title, children, ...rest}: any) {
+    return (
+        <div className="flex items-center justify-between" {...rest}>
+            <div className="text-zinc-400 text-sm">{title}</div>
+            {children}
         </div>
     );
 }
