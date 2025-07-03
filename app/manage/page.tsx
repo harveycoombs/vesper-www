@@ -36,6 +36,10 @@ export default function Manage() {
         })();
     }, []);
 
+    async function logout() {
+
+    }
+
     return (
         <main className="w-250 min-h-[calc(100vh-138px)] mx-auto pt-4.5">
             <section>
@@ -43,17 +47,20 @@ export default function Manage() {
                     {servers.map(server => <ServerCard key={server.id} data={server} />)}
                 </Panel>
 
-                <Panel title="Bot Settings" classes="mb-4">
-                    <FieldContainer title="Model">
-                        <Menu>
-                            <option value="qwen-3-30b-a3b-iq3_m" selected>Qwen 3 30B A3B (IQ3_M quantized)</option>
-                        </Menu>
-                    </FieldContainer>
-                </Panel>
+                <div className="flex gap-4">
+                    <Panel title="Bot Settings" classes="w-1/2">
+                        <FieldContainer title="Model">
+                            <Menu defaultValue="qwen-3-30b-a3b-iq3_m">
+                                <option value="qwen-3-30b-a3b-iq3_m">Qwen3-30B-A3B (IQ3_M quantized)</option>
+                                <option value="gemma-3-27b-it">Gemma3-27B-IT</option>
+                            </Menu>
+                        </FieldContainer>
+                    </Panel>
 
-                <Panel title="Account Settings">
-                    Option to log out, option to de-authorise (to-do)
-                </Panel>
+                    <Panel title="Account Settings" classes="w-1/2">
+                        <Button onClick={logout}>Log Out</Button>
+                    </Panel>
+                </div>
             </section>
         </main>
     );
