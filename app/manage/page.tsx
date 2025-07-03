@@ -42,8 +42,12 @@ export default function Manage() {
                     {servers.map(server => <ServerCard key={server.id} data={server} />)}
                 </Panel>
 
-                <Panel title="Settings">
-                    <Button alt={true}>Click Me</Button>
+                <Panel title="Bot Settings">
+                    Model choice
+                </Panel>
+
+                <Panel title="Account Settings">
+                    Option to log out, option to de-authorise (to-do)
                 </Panel>
             </section>
         </main>
