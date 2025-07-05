@@ -72,12 +72,12 @@ function ServerCard({ data }: any) {
         <article className="p-4 mt-3 flex justify-between items-center bg-zinc-800/80 rounded-xl backdrop-blur-lg border border-white/5 shadow-[inset_-2px_-2px_4px_rgba(255,255,255,0.05),inset_2px_2px_4px_rgba(0,0,0,0.3)] transition-all duration-300 hover:shadow-[inset_-3px_-3px_6px_rgba(255,255,255,0.07),inset_3px_3px_6px_rgba(0,0,0,0.4)] hover:bg-zinc-800/90">
             <div className="flex items-center">
                 <div className="relative">
-                    <img 
+                    {data.icon ? <img 
                         src={`https://cdn.discordapp.com/icons/${data.id}/${data.icon}.png`} 
                         alt={data.name} 
                         draggable={false} 
                         className="w-12 h-12 rounded-xl object-cover select-none shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:scale-105" 
-                    />
+                    /> : <div className="w-12 h-12 rounded-xl grid place-items-center text-lg bg-zinc-700/80 shadow-[0_4px_12px_rgba(0,0,0,0.3)] transition-transform duration-300 hover:scale-105">{data.name.charAt(0)}</div>}
                     <div className="absolute inset-0 rounded-xl shadow-[inset_-1px_-1px_2px_rgba(255,255,255,0.1),inset_1px_1px_2px_rgba(0,0,0,0.2)]"></div>
                 </div>
                 <div className="ml-4">

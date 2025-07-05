@@ -1,6 +1,6 @@
 import fetch from "node-fetch";
 
-export async function getBotGuilds() {
+export async function getBotGuilds(): Promise<any[]> {
     const response = await fetch("https://discord.com/api/users/@me/guilds", {
         headers: {
             "Authorization": `Bot ${process.env.DISCORD_BOT_TOKEN}`,
@@ -13,7 +13,7 @@ export async function getBotGuilds() {
         throw new Error(`Failed to fetch bot guilds (${response.status}): ${text}`);
     }
 
-    return await response.json();
+    return await response.json() as any[];
 }
 
 export async function leaveGuild(guildid: string) {
