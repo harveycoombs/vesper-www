@@ -21,6 +21,10 @@ export default function Manage() {
     const [servers, setServers] = useState<any[]>([]);
     const [serversLoading, setServersLoading] = useState<boolean>(false);
 
+    const [settings, setSettings] = useState<any>(null);
+    const [settingsLoading, setSettingsLoading] = useState<boolean>(false);
+    const [settingsError, setSettingsError] = useState<string>("");
+
     useEffect(() => {
         setServersLoading(true);
 
@@ -40,6 +44,23 @@ export default function Manage() {
 
     }
 
+    async function updateSettings(e: any) {
+        e.preventDefault();
+
+        const model = e.target.value;
+
+        const response = await fetch("/api/user/settings", {
+            method: "POST",
+            body: JSON.stringify({ model })
+        });
+
+        if (!response.ok) {
+            const data = await response.json();
+            setSettingsError(data.error);
+            return;
+        }
+    }
+
     return (
         <main className="w-250 min-h-[calc(100vh-138px)] mx-auto pt-4.5">
             <section>
@@ -48,9 +69,10 @@ export default function Manage() {
                 </Panel>
 
                 <div className="flex gap-4">
-                    <Panel title="Bot Settings" classes="w-1/2">
+                    <Panel title="Bot Settings" classes="w-1/2" loading={settingsLoading}>
+                        {settingsError.length > 0 && <div className="text-red-500 font-medium text-sm mb-2">{settingsError}</div>}
                         <FieldContainer title="Model">
-                            <Menu defaultValue="qwen-3-30b-a3b">
+                            <Menu defaultValue="qwen-3-30b-a3b" onChange={updateSettings}>
                                 <option value="qwen-3-30b-a3b">Qwen 3 30B A3B (IQ3_M quantized)</option>
                                 <option value="llama-4-scout-17b-16e">Llama 4 Scout 17B 16E Instruct (IQ1_M quantized)</option>
                                 <option value="gemma-3-27b-it">Gemma 3 27B IT</option>

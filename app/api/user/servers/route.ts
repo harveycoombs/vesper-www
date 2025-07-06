@@ -1,8 +1,8 @@
 import { NextRequest, NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 
-import { getBotGuilds } from "@/lib/bot";
-import { getRegisteredGuilds } from "@/lib/data";
+import { getBotGuilds } from "@/lib/guilds";
+import { getRegisteredGuilds } from "@/lib/guilds";
 
 export async function GET(request: NextRequest) {
     const token = request.cookies.get("token");

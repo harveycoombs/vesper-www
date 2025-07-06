@@ -1,8 +1,8 @@
 import { NextResponse } from "next/server";
 
-import getServerCount from "@/lib/counter";
+import { getTotalRegisteredGuilds } from "@/lib/guilds";
 
 export async function GET(_: Request): Promise<NextResponse> {
-    const count = await getServerCount();
+    const count = await getTotalRegisteredGuilds();
     return NextResponse.json({ count });
 }
