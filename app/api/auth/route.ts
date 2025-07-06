@@ -60,3 +60,10 @@ export async function GET(request: NextRequest) {
         return NextResponse.json({ error: "An error occurred while exchanging code for access token.", details: ex.message }, { status: 400 });
     }
 }
+
+export async function DELETE(_: NextRequest) {
+    const response = NextResponse.json({ success: true });
+    response.cookies.delete("token");
+
+    return response;
+}

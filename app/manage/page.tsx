@@ -40,8 +40,29 @@ export default function Manage() {
         })();
     }, []);
 
-    async function logout() {
+    useEffect(() => {
+        setSettingsLoading(true);
 
+        (async () => {
+            const response = await fetch("/api/user/settings");
+
+            setSettingsLoading(false);
+
+            if (!response.ok) return;
+
+            const data = await response.json();
+            setSettings(data.settings);
+        })();
+    }, []);
+
+    async function logout() {
+        const response = await fetch("/api/auth", {
+            method: "DELETE"
+        });
+
+        if (!response.ok) return;
+
+        window.location.href = "/";
     }
 
     async function updateSettings(e: any) {
@@ -72,7 +93,7 @@ export default function Manage() {
                     <Panel title="Bot Settings" classes="w-1/2" loading={settingsLoading}>
                         {settingsError.length > 0 && <div className="text-red-500 font-medium text-sm mb-2">{settingsError}</div>}
                         <FieldContainer title="Model">
-                            <Menu defaultValue="qwen-3-30b-a3b" onChange={updateSettings}>
+                            <Menu defaultValue={settings?.model ?? "qwen-3-30b-a3b"} onChange={updateSettings}>
                                 <option value="qwen-3-30b-a3b">Qwen 3 30B A3B (IQ3_M quantized)</option>
                                 <option value="llama-4-scout-17b-16e">Llama 4 Scout 17B 16E Instruct (IQ1_M quantized)</option>
                                 <option value="gemma-3-27b-it">Gemma 3 27B IT</option>
