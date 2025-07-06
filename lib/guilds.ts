@@ -37,16 +37,16 @@ export async function leaveGuild(guildid: string) {
 }
 
 export async function getRegisteredGuilds(userid: string): Promise<any[]> {
-    const [result]: any = await pool.query("SELECT * FROM registered_guilds WHERE owner_id = ?", [userid]);
-    return result;
+    const result = await pool.query("SELECT * FROM vesper.registered_guilds WHERE owner_id = $1", [userid]);
+    return result.rows;
 }
 
 export async function getTotalRegisteredGuilds(): Promise<number> {
-	const [result]: any = await pool.query("SELECT COUNT(*) as total FROM registered_guilds");
-	return result[0]?.total ?? 0;
+	const result = await pool.query("SELECT COUNT(*) as total FROM vesper.registered_guilds");
+	return result.rows[0]?.total ?? 0;
 }
 
 export async function deregisterGuild(guildid: string): Promise<boolean> {
-    const [result]: any = await pool.query("DELETE FROM registered_guilds WHERE guild_id = ?", [guildid]);
-    return result.affectedRows > 0;
+    const result = await pool.query("DELETE FROM vesper.registered_guilds WHERE guild_id = $1", [guildid]);
+    return result.rowCount ? result.rowCount > 0 : false;
 }

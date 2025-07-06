@@ -1,11 +1,11 @@
 import pool from "@/lib/database";
 
 export async function getUserSettings(userid: string): Promise<any> {
-    const [result]: any = await pool.query("SELECT * FROM user_settings WHERE user_id = ?", [userid]);
-    return result[0];
+    const result = await pool.query("SELECT * FROM vesper.user_settings WHERE user_id = $1", [userid]);
+    return result.rows[0];
 }
 
 export async function updateUserSettings(userid: string, model: string): Promise<boolean> {
-    const [result]: any = await pool.query("UPDATE user_settings SET model = ? WHERE user_id = ?", [model, userid]);
-    return result.affectedRows > 0;
+    const result = await pool.query("UPDATE vesper.user_settings SET model = $1 WHERE user_id = $2", [model, userid]);
+    return result.rowCount ? result.rowCount > 0 : false;
 }
