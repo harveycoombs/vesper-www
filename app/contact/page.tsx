@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
+import Link from "next/link";
 
 import Label from "@/app/components/common/Label";
 import Field from "@/app/components/common/Field";
 import Button from "@/app/components/common/Button";
-import Link from "next/link";
+import Panel from "@/app/components/common/Panel";
 
 export default function Contact() {
     const [name, setName] = useState<string>("");
@@ -46,6 +47,7 @@ export default function Contact() {
 
                 <p className="leading-7">Fill in the fields below and click submit to get in touch.</p>
 
+            <Panel>
                 <form className="mt-8" onSubmit={submitEnquiry}>
                     {feedback}
                         
@@ -66,6 +68,7 @@ export default function Contact() {
 
                     <Button classes="block w-full mt-4" loading={loading}>Submit</Button>
                 </form>
+            </Panel>
 
                 <p className="leading-7 mt-8">Alternatively, join the official <Link href="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Vesper Discord server</Link> to keep up to date and to receive support.</p>
             </section>
