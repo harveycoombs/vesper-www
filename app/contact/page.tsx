@@ -47,8 +47,8 @@ export default function Contact() {
 
                 <p className="leading-7">Fill in the fields below and click submit to get in touch.</p>
 
-            <Panel>
-                <form className="mt-8" onSubmit={submitEnquiry}>
+            <Panel classes="mt-8">
+                <form onSubmit={submitEnquiry}>
                     {feedback}
                         
                     <fieldset className="flex gap-6 w-full max-sm:flex-col max-sm:gap-4">
