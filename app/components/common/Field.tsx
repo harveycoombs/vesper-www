@@ -1,5 +1,3 @@
-import Link from "next/link";
-
 interface Properties {
     type?: string;
     classes?: string;

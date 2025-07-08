@@ -6,6 +6,7 @@ import Label from "@/app/components/common/Label";
 import Field from "@/app/components/common/Field";
 import Button from "@/app/components/common/Button";
 import Panel from "@/app/components/common/Panel";
+import TextBox from "@/app/components/common/TextBox";
 
 export default function Contact() {
     const [name, setName] = useState<string>("");
@@ -42,35 +43,25 @@ export default function Contact() {
                 <h1 className="block text-5xl font-semibold text-white text-center">Contact</h1>
             </section>
 
-            <section className="mt-15">
-                <h2 className="block mb-3 text-3xl font-semibold text-white">Enquiry Form</h2>
+            <section className="flex gap-10 mt-15">
+                <Panel title="Enquiry Form" classes="w-1/2">
+                    <form onSubmit={submitEnquiry}>
+                        {feedback}
+                            
+                        <Label classes="block w-full mb-1">Your Name</Label>
+                        <Field classes="block w-full" onInput={(e: any) => setName(e.target.value)} />
 
-                <p className="leading-7">Fill in the fields below and click submit to get in touch.</p>
+                        <Label classes="block w-full mb-1 mt-4">Your Email</Label>
+                        <Field classes="block w-full" onInput={(e: any) => setEmail(e.target.value)} />
 
-            <Panel classes="mt-8">
-                <form onSubmit={submitEnquiry}>
-                    {feedback}
-                        
-                    <fieldset className="flex gap-6 w-full max-sm:flex-col max-sm:gap-4">
-                        <div className="w-1/2 max-sm:w-full">
-                            <Label classes="block w-full mb-1">Your Name</Label>
-                            <Field classes="block w-full" onInput={(e: any) => setName(e.target.value)} />
-                        </div>
+                        <Label classes="block w-full mb-1 mt-4">Your Message</Label>
+                        <TextBox classes="block w-full" onInput={(e: any) => setMessage(e.target.value)} />
 
-                        <div className="w-1/2 max-sm:w-full">
-                            <Label classes="block w-full mb-1">Your Email</Label>
-                            <Field classes="block w-full" onInput={(e: any) => setEmail(e.target.value)} />
-                        </div>
-                    </fieldset>
+                        <Button classes="block w-full mt-4" loading={loading}>Submit</Button>
+                    </form>
+                </Panel>
 
-                    <Label classes="block w-full mb-1 mt-4">Your Message</Label>
-                    <textarea className="block w-full px-4.5 py-3 rounded-md text-[0.8rem] leading-none resize-vertical min-h-20 max-h-80 duration-200 text-zinc-300 bg-zinc-900" rows={10} onInput={(e: any) => setMessage(e.target.value)}></textarea>
-
-                    <Button classes="block w-full mt-4" loading={loading}>Submit</Button>
-                </form>
-            </Panel>
-
-                <p className="leading-7 mt-8">Alternatively, join the official <Link href="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Vesper Discord server</Link> to keep up to date and to receive support.</p>
+                <p className="w-1/2 leading-7">Alternatively, join the official <Link href="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" className="text-white hover:underline">Vesper Discord server</Link> to keep up to date and to receive support.</p>
             </section>
         </main>
     );
