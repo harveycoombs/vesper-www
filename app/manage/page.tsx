@@ -93,8 +93,8 @@ export default function Manage() {
                     <Panel title="Bot Settings" classes="w-1/2" loading={settingsLoading}>
                         {settingsError.length > 0 && <div className="text-red-500 font-medium text-sm mb-2">{settingsError}</div>}
                         <FieldContainer title="Model">
-                            <Menu defaultValue="magistral-small-2506" disabled  title="Temporarily Unavailable">
-                                <option value="magistral-small-2506">Magistral-Small-2506 (Q6_K_L quantized)</option>
+                            <Menu defaultValue="magistral-small-2506" disabled title="Temporarily Unavailable">
+                                <option value="magistral-small-2506">Magistral-Small-2506</option>
                             </Menu>
                         </FieldContainer>
                     </Panel>
