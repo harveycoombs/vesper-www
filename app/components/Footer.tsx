@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDiscord } from "@fortawesome/free-brands-svg-icons";
+import { faDiscord, faGithub } from "@fortawesome/free-brands-svg-icons";
 
 export default function Footer() {
     return (
@@ -12,7 +12,9 @@ export default function Footer() {
                 <span>&middot;</span>
                 <Link href="/documents/privacy-policy.pdf" className="hover:underline">Privacy Policy</Link>
                 <span>&middot;</span>
-                <Link href="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" className="duration-200 hover:text-white"><FontAwesomeIcon icon={faDiscord} /></Link>
+                <Link href="https://discord.gg/aF4EctqgPS" target="_blank" rel="noopener noreferrer" title="Join the official Discord server" className="duration-200 hover:text-white"><FontAwesomeIcon icon={faDiscord} /></Link>
+                <span>&middot;</span>
+                <Link href="https://github.com/harveycoombs/vesper-www" target="_blank" rel="noopener noreferrer" title="View this site on GitHub" className="duration-200 hover:text-white"><FontAwesomeIcon icon={faGithub} /></Link>
             </div>
         </footer>
     );
