@@ -21,7 +21,7 @@ export default function Manage() {
     const [servers, setServers] = useState<any[]>([]);
     const [serversLoading, setServersLoading] = useState<boolean>(false);
 
-    const [settings, setSettings] = useState<any>(null);
+    //const [settings, setSettings] = useState<any>(null);
     const [settingsLoading, setSettingsLoading] = useState<boolean>(false);
     const [settingsError, setSettingsError] = useState<string>("");
 
@@ -40,7 +40,7 @@ export default function Manage() {
         })();
     }, []);
 
-    useEffect(() => {
+    /*useEffect(() => {
         setSettingsLoading(true);
 
         (async () => {
@@ -53,7 +53,7 @@ export default function Manage() {
             const data = await response.json();
             setSettings(data.settings);
         })();
-    }, []);
+    }, []);*/
 
     async function logout() {
         const response = await fetch("/api/auth", {
