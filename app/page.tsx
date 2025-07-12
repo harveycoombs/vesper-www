@@ -9,7 +9,7 @@ export default function Home() {
 
     useEffect(() => {
         (async () => {
-            const response = await fetch("/api/counter");
+            const response = await fetch("/api/guilds/total");
             const data = await response.json();
 
             if (!response.ok) {
@@ -17,7 +17,7 @@ export default function Home() {
                 return;
             }
 
-            setServerCount(data.count);
+            setServerCount(data.total ?? 0);
         })();
     }, []);
 
