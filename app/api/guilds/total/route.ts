@@ -12,7 +12,7 @@ export async function GET(_: Request) {
             }
         }); 
 
-        client.on("error", (err) => console.error('Redis Client Error', err));
+        client.on("error", (err) => console.error("Redis Client Error", err));
 
         await client.connect();
         const total = await client.get("guild_count") ?? "0";
