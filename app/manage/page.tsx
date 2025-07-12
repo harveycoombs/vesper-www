@@ -93,8 +93,8 @@ export default function Manage() {
                     <Panel title="Bot Settings" classes="w-1/2" loading={settingsLoading}>
                         {settingsError.length > 0 && <div className="text-red-500 font-medium text-sm mb-2">{settingsError}</div>}
                         <FieldContainer title="Model">
-                            <Menu defaultValue="gemma-3-12b" disabled title="Temporarily Unavailable">
-                                <option value="gemma-3-12b">Gemma 3 12B</option>
+                            <Menu defaultValue="qwen3-8b" disabled title="Temporarily Unavailable">
+                                <option value="qwen3-8b">Qwen3 8B</option>
                             </Menu>
                         </FieldContainer>
                     </Panel>
